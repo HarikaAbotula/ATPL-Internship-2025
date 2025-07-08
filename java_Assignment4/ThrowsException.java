@@ -1,12 +1,10 @@
-import java.util.Scanner;
+
 import java.io.*;
 public class ThrowsException{
     public static void main(String args[]) {
-       // Scanner sc=new Scanner(System.in);
         String fileName="D://Git Repo//password.txt";
-        ThrowsException obj=new ThrowsException();
         try{
-            obj.readFile(fileName);
+            ThrowsException.readFile(fileName);
         }
         catch(IOException e){
             System.out.println("Error reading file: "+e.getMessage());

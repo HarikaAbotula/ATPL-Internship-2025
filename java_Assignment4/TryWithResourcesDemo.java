@@ -1,10 +1,10 @@
 import java.util.Scanner;
 import java.io.*;
-public class TryWithResource{
+public class TryWithResourcesDemo{
     public static void main(String args[]) {
        // Scanner sc=new Scanner(System.in);
         String fileName="D://Git Repo//password.txt";
-        TryWithResource obj = new TryWithResource();
+        TryWithResourcesDemo obj = new TryWithResourcesDemo();
         try{
             obj.readFileSafely(fileName);
         }
