@@ -9,6 +9,7 @@ public class LinkedListDemo {
         for(int index=0;index<size;index++){
             linkedlist.add(scanner.nextInt());
         }
+        
         System.out.println("Elements in linkedlist: "+linkedlist);
         linkedlist.addFirst(5);
         linkedlist.addLast(60);
