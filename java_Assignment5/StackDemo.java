@@ -3,7 +3,7 @@ public class StackDemo {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         Stack<Integer> stack=new Stack<>();
-        System.out.println("Enter Integer elements to push on stack,Type FINISH after entering");
+        System.out.println("Enter Integer elements to push on stack,Type FINISH after entering: ");
 
         while(scanner.hasNext()){
             if(scanner.hasNextInt()){
