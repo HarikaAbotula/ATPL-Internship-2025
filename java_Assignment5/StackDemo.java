@@ -9,7 +9,6 @@ public class StackDemo {
             if(scanner.hasNextInt()){
                 int elements=scanner.nextInt();
                 stack.push(elements);
-               // System.out.println(num);
             }
             else{
                 String stringinput=scanner.next();
