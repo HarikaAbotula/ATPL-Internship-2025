@@ -18,7 +18,7 @@ public class StackDemo {
                 System.out.println("Invalid input.please provide Integer input");
             }
         }
-
+        
         System.out.println("ORIGINAL STACK: "+stack);
         stack.pop();
         stack.pop();
