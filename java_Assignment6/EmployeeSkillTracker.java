@@ -24,7 +24,7 @@ public class EmployeeSkillTracker {
 		Set<String> skillsB = empSkills.get("Steve");
 		
 		Set<String> common = new HashSet<>(skillsA);
-        common.retainAll(skillsB);
-        System.out.println("Common skills between John and Steve: " + common);
+       		common.retainAll(skillsB);
+        	System.out.println("Common skills between John and Steve: " + common);
 	}
 }
