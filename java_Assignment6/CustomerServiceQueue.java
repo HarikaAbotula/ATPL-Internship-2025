@@ -7,7 +7,7 @@ public class CustomerServiceQueue {
 		public void addCustomer(String name) {
 	        customerQueue.offer(name);
 	        System.out.println(name + " has been added to the queue.");
-	    }
+	        }
 		
 		public void serveCustomer() {
 			if(customerQueue.isEmpty()) {
@@ -45,29 +45,28 @@ public class CustomerServiceQueue {
 			scanner.nextLine();
 			
 			switch (choice) {
-            case 1:
-                System.out.println("Enter Customer Name");
-                String name = scanner.nextLine();
-                service.addCustomer(name);  
-                break;
+            			case 1:
+                			System.out.println("Enter Customer Name");
+                			String name = scanner.nextLine();
+               				service.addCustomer(name);  
+                			break;
 
-            case 2:
-               service.serveCustomer();
-                break;
+            			case 2:
+               				service.serveCustomer();
+                			break;
 
-            case 3:
-                service.peekNextCustomer();
-                break;
+            			case 3:
+                			service.peekNextCustomer();
+                			break;
 
-            case 4:
-                System.out.println("Exiting customer service simulation");
-                return;
+            			case 4:
+                			System.out.println("Exiting customer service simulation");
+                			return;
 
-            default:
-                System.out.println("Invalid choice. Please try again.");
-                scanner.close();
-               
-        }
-      }
-   }
+           			 default:
+                			System.out.println("Invalid choice. Please try again.");
+                			scanner.close();
+			}
+		}
+	}
 }
