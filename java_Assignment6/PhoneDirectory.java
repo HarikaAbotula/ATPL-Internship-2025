@@ -14,16 +14,18 @@ public class PhoneDirectory {
 			System.out.println("2.Search Contact");
 			System.out.println("3.Remove Contact");
 			System.out.println("4.Exit");
+			System.out.println("Enter your choice");
 			choice=scanner.nextInt();
 			scanner.nextLine();
 			
 			switch(choice) {
 				case 1:
-					System.out.println("Enter the contact name and phone number");
+					System.out.println("Enter the contact name");
 					String name = scanner.nextLine();
 					System.out.println("Enter the phone number");
 					String phoneNum = scanner.nextLine();
 					phoneDirectory.put(name,phoneNum);
+					System.out.println("Contact Added");
 					break;
 				case 2:
 					System.out.println("Enter the name ,you want to search");
