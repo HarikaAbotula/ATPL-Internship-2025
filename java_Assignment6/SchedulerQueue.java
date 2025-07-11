@@ -19,12 +19,12 @@ public class SchedulerQueue {
 		
 		for(int index=0;index<removeDoc;index++) {
 			String printedDoc = queue.poll();
-            if (printedDoc != null) {
-                System.out.println("Removed Document: " + printedDoc);
-            }
-            else {
-                System.out.println("No more documents to print.");
-            }
+            		if (printedDoc != null) {
+                		System.out.println("Removed Document: " + printedDoc);
+            		}
+            		else {
+               			 System.out.println("No more documents to print.");
+            		}
 		}
 		System.out.println("Remaining Print Queue: " + queue);
 		scanner.close();
