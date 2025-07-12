@@ -1,0 +1,2 @@
+Hello ! This is a Java Program. Basic Java IO.
+Perform java File operations. If file not found throws exception. 
