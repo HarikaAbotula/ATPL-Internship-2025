@@ -12,7 +12,7 @@ class NameComparator implements Comparator<Student> {
 class MarksDescendingComparator implements Comparator<Student> {
     
 	public int compare(Student s1, Student s2) {
-        return Double.compare(s2.getMarks(), s1.getMarks());
+        return Integer.compare(s2.getMarks(), s1.getMarks());
     }
 }
 
@@ -29,11 +29,11 @@ public class CustomObjectComparator {
        
 		List<Student> students = new ArrayList<>();
 		
-        students.add(new Student(101, "John", 32, 85.0));
-        students.add(new Student(102, "Nancy", 32, 92.5));
-        students.add(new Student(103, "Pradhan", 25, 72.8));
-        students.add(new Student(104, "Ron", 28, 92.5));
-        students.add(new Student(105, "Mike",18, 60.0));
+        students.add(new Student(101, "John", 32, 85));
+        students.add(new Student(102, "Nancy", 32, 92));
+        students.add(new Student(103, "Pradhan", 25, 72));
+        students.add(new Student(104, "Ron", 28, 92));
+        students.add(new Student(105, "Mike",18, 60));
 
         System.out.println("Original List:");
         for (Student s : students) {
@@ -61,16 +61,13 @@ public class CustomObjectComparator {
             System.out.println(s);
         }
 
-        // Sort by Marks Descending, then Name Ascending (chained)
-        Collections.sort(students, new Comparator<Student>() {
-            public int compare(Student s1, Student s2) {
-                int markCompare = Double.compare(s2.getMarks(), s1.getMarks());
-                if (markCompare == 0) {
-                    return s1.getName().compareToIgnoreCase(s2.getName());
-                }
-                return markCompare;
-            }
-        });
+       
+       // Sort by Marks Descending, then Name Ascending using Comparator chaining
+        Collections.sort(students,
+        	    Comparator.comparing(Student::getMarks, Comparator.reverseOrder())
+        	              .thenComparing(Student::getName)
+        );
+
         
         System.out.println("\nSorted by Marks (desc), then Name (asc):");
         for (Student s : students) {
