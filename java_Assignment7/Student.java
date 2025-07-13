@@ -4,9 +4,9 @@ public class Student implements Comparable<Student> {
     private int id;
     private String name;
     private int age;
-    private double marks;
+    private int marks;
 
-    public Student(int id, String name, int age, double marks) {
+    public Student(int id, String name, int age, int marks) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -25,7 +25,7 @@ public class Student implements Comparable<Student> {
         return age;
     }
 
-    public double getMarks() {
+    public int getMarks() {
         return marks;
     }
 
