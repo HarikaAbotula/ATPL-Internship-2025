@@ -1,0 +1,5 @@
+Name                   Age   Department   GPA  
+John sonnnnn           21    CSE          8.45 
+Nancy wheeler          22    ECE          9.12 
+Steve                  20    IT           7.80 
+Dong Lee Smith tuhuh   23    ME           9.00 
