@@ -1,0 +1,5 @@
+Student1[Name=John, Age=23, Department=CSE, GPA=7.80]
+Student2[Name=Jessy, Age=21, Department=Architecture, GPA=8.90]
+Student3[Name=Nancy, Age=24, Department=Automation, GPA=9.20]
+Student4[Name=Harry, Age=21, Department=ECE, GPA=8.60]
+Student5[Name=Vendra, Age=32, Department=EEE, GPA=9.50]
