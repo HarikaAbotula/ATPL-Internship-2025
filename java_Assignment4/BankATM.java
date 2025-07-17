@@ -1,35 +1,41 @@
 import java.util.Scanner;
 public class BankATM {
-   double bal;
-    public void deposit(int amt){
-        if(amt>0){
-        bal+=amt;
-        System.out.println("Deposited Amount: "+amt);
+    private double balance;
+    
+    BankATM(double balance){
+    this.balance=balance;
+    }
+    
+    public void deposit(int amount){
+        if(amount>0){
+            this.balance+=amount;
+        System.out.println("Deposited Amount: "+amount);
         }
         else{
             System.out.println("Enter valid deposit Amount");
         }
     }
 
-     public void withdraw(int wAmt) throws InsufficientBalanceException {
-        if (wAmt <= 0) {
+     public void withdraw(int withdrawAmount) throws InsufficientBalanceException {
+       
+        if (withdrawAmount <= 0) {
             System.out.println("Invalid withdrawal amount,Enter valid amount");
         }
 
-        else if( wAmt > bal) {
+        else if( withdrawAmount > this.balance) {
             throw new InsufficientBalanceException("Insufficient balance. Current balance: " + bal);
         }
 
-        bal -= wAmt;
-        System.out.println("Withdrawn:Rs. " + wAmt);
+        this.balance -= withdrawAmount;
+        System.out.println("Withdrawn:Rs. " + withdrawAmount);
     }
 
     public double getBalance() {
-        return bal;
+        return balance;
     }
     public static void main(String[] args) {
-        Scanner sc =new Scanner(System.in);
-        BankATM atm = new BankATM();
+        Scanner scanner =new Scanner(System.in);
+        BankATM atm = new BankATM(1000);
          while (true) {
             System.out.println("\n    ATM Actions   ");
             System.out.println("1. Deposit");
@@ -38,21 +44,22 @@ public class BankATM {
             System.out.println("4. Exit");
             System.out.print("Choose an option: ");
 
-            int choice = sc.nextInt();
+            int choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
                     System.out.print("Enter deposit amount:Rs. ");
-                    int depositAmount = sc.nextInt();
+                    int depositAmount = scanner.nextInt();
                     atm.deposit(depositAmount);
                     break;
 
                 case 2:
                     System.out.print("Enter withdrawal amount:Rs. ");
-                    int withdrawAmount = sc.nextInt();
+                    int withdrawAmount = scanner.nextInt();
                     try {
                         atm.withdraw(withdrawAmount);
-                    } catch (InsufficientBalanceException e) {
+                    } 
+                    catch (InsufficientBalanceException e) {
                         System.out.println("Exception: " +e.getMessage());
                     }
                     break;
@@ -68,6 +75,7 @@ public class BankATM {
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
+            scanner.close();
         }
     }
 }
