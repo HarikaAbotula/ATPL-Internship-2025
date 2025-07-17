@@ -4,14 +4,15 @@ public class HandlingFileExceptions{
         loadFile("password.txt");
     }
     public static void loadFile(String fileName){
+
         try{
-            FileInputStream fi=new FileInputStream(fileName);
+            FileInputStream fileInputStream=new FileInputStream(fileName);
             int ch;
             System.out.println("Content of the file: ");
-            while((ch=fi.read())!=-1){
+            while((ch=fileInputStream.read())!=-1){
                 System.out.print((char)ch);
             }
-            fi.close();
+            fileInputStream.close();
         }
         catch(FileNotFoundException fnf){
             System.out.println("File not found,ensure the file exists");
