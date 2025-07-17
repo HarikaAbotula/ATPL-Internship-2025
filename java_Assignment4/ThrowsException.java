@@ -12,17 +12,19 @@ public class ThrowsException{
     }
 
     public static void readFile(String fileName) throws IOException{
-        BufferedReader bfr=null;
+        BufferedReader bufferedReader=null;
         try{
-             bfr=new BufferedReader(new FileReader(fileName));
+             bufferedReader=new BufferedReader(new FileReader(fileName));
              String line;
-             while((line=bfr.readLine())!=null){
+
+             while((line=bufferedReader.readLine())!=null){
                 System.out.println("content: "+line);
              }
-            }
+             
+        }
         finally{
-            if(bfr!=null){
-                bfr.close();
+            if(bufferedReader!=null){
+                bufferedReader.close();
             }
         }    
     }
