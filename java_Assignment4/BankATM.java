@@ -23,7 +23,7 @@ public class BankATM {
         }
 
         else if( withdrawAmount > this.balance) {
-            throw new InsufficientBalanceException("Insufficient balance. Current balance: " + bal);
+            throw new InsufficientBalanceException("Insufficient balance. Current balance: " + this.balance);
         }
 
         this.balance -= withdrawAmount;
