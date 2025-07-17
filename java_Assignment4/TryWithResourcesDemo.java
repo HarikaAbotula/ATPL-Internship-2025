@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 import java.io.*;
 public class TryWithResourcesDemo{
     public static void main(String args[]) {
@@ -19,9 +19,11 @@ public class TryWithResourcesDemo{
              while((line=bfr.readLine())!=null){
                 System.out.println("content: "+line);
              }
-            }
-            finally{
+             bfr.close();
+        }
+            
+        finally{
                 System.out.println("Resources are autoclosable");
-            }
-        }    
+        }
+    }    
 }
