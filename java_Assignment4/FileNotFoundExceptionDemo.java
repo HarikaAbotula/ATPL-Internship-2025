@@ -4,11 +4,13 @@ import java.io.FileNotFoundException;
 
 public class FileNotFoundExceptionDemo {
     public static void main(String[] args) throws IOException{
-        FileReader fr=null;
+        FileReader fileReader=null;
         try {
-            fr = new FileReader("password.txt");
+            fileReader = new FileReader("password.txt");
             System.out.println("File opened successfully.");
-        } catch (FileNotFoundException e) {
+            fileReader.close();
+        } 
+        catch (FileNotFoundException e) {
             System.out.println("Caught FileNotFoundException: " + e.getMessage());
         }
     }
