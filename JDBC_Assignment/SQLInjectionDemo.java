@@ -5,7 +5,7 @@ public class SQLInjectionDemo {
     public static void main(String[] args) throws Exception {
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/interndb", "root", "database@01");
         //vulnerable statement ,leads to sql injection
-        Statement statement = con.createStatement();
+        Statement statement = connection.createStatement();
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter username: ");
@@ -19,7 +19,7 @@ public class SQLInjectionDemo {
         String query = "SELECT * FROM users_harika WHERE username = '" + username + "' AND password = '" + password + "'";
         System.out.println("Executing: " + query);
 
-        ResultSet resultSet = stmt.executeQuery(query);
+        ResultSet resultSet = statement.executeQuery(query);
 
         if (resultSet.next()) {
             System.out.println(" Login Successful! Welcome " + resultSet.getString("username"));
