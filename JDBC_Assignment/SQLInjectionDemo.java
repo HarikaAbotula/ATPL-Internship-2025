@@ -15,7 +15,7 @@ public class SQLInjectionDemo {
         //If user enters: username = admin(anything), password = ' OR '1'='1
         // The final query becomes:
         // SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1'
-        // '1'='1' is always true → attacker logs in without valid password!
+        // '1'='1' is always true, attacker logs in without valid password!
         String query = "SELECT * FROM users_harika WHERE username = '" + username + "' AND password = '" + password + "'";
         System.out.println("Executing: " + query);
 
