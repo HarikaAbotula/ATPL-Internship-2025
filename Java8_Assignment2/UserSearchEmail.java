@@ -11,7 +11,7 @@ class User{
         this.name = name;
         this.email = email;
     }
-    
+
     public Optional<String> getEmailOptional() {
         return Optional.ofNullable(email);
     }
@@ -24,21 +24,23 @@ public class UserSearchEmail {
             usersList.add(new User("Roshie","rioshini@company.com"));
             usersList.add(new User("Himaja","himaja@outlook.com"));
 
-        String targetName = "Kitty";  
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Enter the target name:");
+        String targetName = scanner.nextLine();  
 
-        Function<String, String> toUpperCaseFunction = String::toUpperCase;
+        Function<String, String> toUpperCase = String::toUpperCase;
 
           // 1. Find the user by name using Stream and filter
         Optional<User> foundUser = usersList.stream()
                 .filter(user -> user.name.equalsIgnoreCase(targetName))
                 .findFirst();
-                
+
         String result = foundUser.flatMap(User::getEmailOptional) 
-                .map(toUpperCaseFunction)
+                .map(toUpperCase)
                 .orElse("Email not Found");
                 
         System.out.println(result);
-                
+        scanner.close();     
 
     }
 }
