@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.aaslin.util.DbUtil;
 
 public class DisplayAdmin extends HttpServlet {
-	
+	                                                           
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
