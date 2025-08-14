@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+       <bean id="student" class="com.aaslin.springcore.Student">
+        	<property name="name" value="harika"> </property>
+        </bean> 
+        
+        <bean id="college" class="com.aaslin.springcore.College">
+        	<property name="collegeName" value="MVGR"></property>
+        </bean>
+        
+         <bean id="course" class="com.aaslin.springcore.Course">
+        	<constructor-arg value="Spring Framework"/>
+        </bean>
+        
+        <bean id="faculty" class="com.aaslin.springcore.Faculty">
+        	<constructor-arg ref="course"></constructor-arg>
+        </bean>
+        
+        <bean id="book" class="com.aaslin.springcore.Book">
+        	<property name="title" value="Spring Framework"> </property>
+        	<property name="author" value="Rod Johnson"> </property>
+        	<property name="isbn" value="9"> </property>
+        </bean> 
+        
+        <bean id="library" class="com.aaslin.springcore.Library">
+        	<property name="book" ref="book                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  "></property>
+        </bean>
+        
+         <bean id="universityFaculty" class="com.aaslin.springcore.UniversityFaculty">
+        	<constructor-arg value="Jyothi" />
+        	<constructor-arg value="1001" />
+        </bean>
+        
+        <bean id="universityLibrary" class="com.aaslin.springcore.UniversityLibrary">
+        	<property name="sectionName" value="Technology"/>
+        	<property name="countOfBooks" value="50"/>
+        </bean>
+        
+        <bean id="university" class="com.aaslin.springcore.University">
+       		<constructor-arg ref="universityFaculty" />
+        	<property name="universityLibrary" ref="universityLibrary" />	
+        </bean>
+        
+       
+        
+</beans>

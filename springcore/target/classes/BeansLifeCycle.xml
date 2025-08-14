@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+ <bean id="teacherXml" class="com.aaslin.springcore.TeacherXml" init-method="customInit" destroy-method="customDestroy"/>
+ 
+ <bean id="singletonBean" class="com.aaslin.springcore.SingletonBean" scope="singleton" />
+ 
+  <bean id="prototypeBean" class="com.aaslin.springcore.PrototypeBean" scope="prototype" />
+ </beans>

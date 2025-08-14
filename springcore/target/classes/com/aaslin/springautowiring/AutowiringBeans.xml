@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+         
+        <bean id="department" class="com.aaslin.springautowiring.Department"/>
+        
+        <!-- Field injection simulated with setter and autowire byName -->
+        <bean id="employeeField" class="com.aaslin.springautowiring.EmployeeField" autowire="byName"/>
+        
+        <!-- Setter injection with byType -->
+		<bean id="employeeSetter" class="com.aaslin.springautowiring.EmployeeSetter" autowire="byType"/>
+		
+		<!-- Constructor injection -->
+		<bean id="employeeConstructor" class="com.aaslin.springautowiring.EmployeeConstructor" autowire="constructor"/>  
+        
+ </beans>
