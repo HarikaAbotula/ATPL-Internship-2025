@@ -1,0 +1,13 @@
+package com.aaslin.springbootjdbcDemo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringbootjdbcDemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringbootjdbcDemoApplication.class, args);
+	}
+
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
