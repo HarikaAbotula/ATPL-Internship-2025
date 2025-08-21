@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+	  body { font-family: Arial, sans-serif; background:#f8f9fa; }
+        .navbar { display:flex; justify-content:space-between; align-items:center; background:#233142; color:#fff; padding:12px 20px; }
+        .navbar a { color:#ffffff; margin-right:16px; text-decoration:none; }
+        .nav-left { display:flex; gap:16px; align-items:center; }
+        .container { width: 94%; margin: 20px auto; }
+        .card { background:#fff; padding:16px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+        h2 { text-align:center; margin:20px 0 10px; }
+        table { width:100%; border-collapse:collapse; margin-top:10px; }
+        th, td { border:1px solid #e5e5e5; padding:8px; text-align:center; }
+        th { background:#f1f3f5; }
+        .status-issued { color:#e67e22; font-weight:bold; }
+        .status-returned { color:#27ae60; font-weight:bold; }

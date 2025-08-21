@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Issue Book</title>
+    <link rel="stylesheet" th:href="@{/css/issueBook.css}" />
+</head>
+<body>
+<div class="container">
+    <h2>Issue Book</h2>
+
+    <div th:if="${error}" class="alert-error">[[${error}]]</div>
+    <div th:if="${success}" class="alert-success">
+        [[${success}]] — Due date: <b th:text="${#temporals.format(dueDate, 'yyyy-MM-dd')}"></b>
+    </div>
+
+    <form th:action="@{/admin/books/issue}" method="post" th:if="${book != null}">
+        <label>Book ID</label>
+        <input type="text" name="bookId" th:value="${book.bookId}" readonly />
+
+        <label>Title</label>
+        <input type="text" th:value="${book.title}" readonly />
+
+        <label for="userNum">User Number</label>
+        <input id="userNum" type="text" name="userNum" placeholder="Enter userNum" required />
+
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes" placeholder="Notes (optional)"></textarea>
+
+        <button class="btn" type="submit">Issue Book</button>
+    </form>
+
+    <a class="back-link" th:href="@{/admin/books}">Back to Dashboard</a>
+</div>
+</body>
+</html>
+
+

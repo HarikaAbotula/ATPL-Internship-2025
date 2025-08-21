@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Return Book</title>
+     <link rel="stylesheet" th:href="@{/css/returnBook.css}" />
+</head>
+<body>
+<div class="container">
+    <h2>Return Book</h2>
+    <div th:if="${error}" class="alert-error">[[${error}]]</div>
+    <div th:if="${success}" class="alert-success">[[${success}]]</div>
+
+    <form th:if="${issued != null}" th:action="@{/admin/books/returnConfirm}" method="post">
+        <label>Issue ID</label>
+        <input type="text" name="issueId" th:value="${issued.issueId}" readonly />
+
+        <label>Book ID</label>
+        <input type="text" th:value="${issued.book.bookId}" readonly />
+
+        <label>Return Date</label>
+        <input type="text" th:value="${#temporals.format(today, 'yyyy-MM-dd')}" readonly />
+
+        <button class="btn" type="submit">Return Book</button>
+    </form>
+
+    <a class="back-link" th:href="@{/admin/books}">Back to Dashboard</a>
+</div>
+</body>
+</html>
+
+

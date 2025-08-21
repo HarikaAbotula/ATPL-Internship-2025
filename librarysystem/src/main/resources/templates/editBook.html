@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Book</title>
+    <link rel="stylesheet" th:href="@{/css/editBook.css}" />
+</head>
+<body>
+<div class="container">
+    <h2>Edit Book</h2>
+    <div th:if="${success}" style="background:#e6ffed;border:1px solid #95deab;color:#1e7e34;padding:10px;border-radius:6px;margin-bottom:12px;">
+        [[${success}]]
+    </div>
+    <form th:action="@{/admin/books/update}" th:object="${book}" method="post">
+        <input type="hidden" th:field="*{bookId}" />
+        <label for="title">Title:</label>
+        <input id="title" type="text" th:field="*{title}" required />
+        <label for="author">Author:</label>
+        <input id="author" type="text" th:field="*{author}" />
+        <label for="isbn">ISBN:</label>
+        <input id="isbn" type="text" th:field="*{isbn}" required />
+        <button type="submit">Save Changes</button>
+    </form>
+    <a th:href="@{/admin/books}" class="back-link">Back to Dashboard</a>
+    
+</div>
+</body>
+</html>
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" th:href="@{css/user-dashboard.css}"/>
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-left">
+        <a th:href="@{/user/dashboard}" style="font-weight:bold;">Library Dashboard - User</a>
+        <a th:href="@{/user/issued}" style="margin-left:16px;">IssuedBooks</a>
+    </div>
+    <div class="nav-center">Welcome</div>
+    <div class="nav-right">
+        <span>[[${session.username}]]([[${session.userNum}]])</span>
+        <a th:href="@{/logout}" class="btn">Logout</a>
+    </div>
+    
+</nav>
+
+<div class="card">
+    <h3 style="text-align:center;">All Books</h3>
+    <table>
+        <tr><th>ID</th><th>Title</th><th>Author</th><th>ISBN</th><th>Available</th></tr>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.bookId}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.isbn}"></td>
+            <td th:text="${book.isAvailable} ? 'Yes' : 'No'"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

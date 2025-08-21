@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+	 body { font-family: Arial, sans-serif; background: #f8f9fa; }
+        .navbar { display:flex; justify-content:space-between; align-items:center; background:#233142; color:#fff; padding:12px 20px; }
+        .navbar a { color:#fff; margin:0 10px; text-decoration:none; }
+        .nav-left { font-weight:bold; }
+        .nav-center { text-align:center; flex:1; }
+        .nav-right { display:flex; gap:10px; align-items:center; }
+        .pill { padding:4px 8px; border-radius:6px; background:#2ca58d; color:#fff; font-size:12px; }
+        h2 { text-align:center; margin:20px 0 10px; }
+        .card { background:#fff; width: 94%; margin: 10px auto; padding:16px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border:1px solid #e5e5e5; padding:10px; text-align:center; }
+        th { background:#f1f3f5; }
+        .actions a, .actions form { margin: 0 4px; display:inline-block; }
+        .btn { padding:6px 10px; border-radius:4px; border:none; cursor:pointer; text-decoration:none; }
+        .btn-edit { background:#f1c40f; color:#000; }
+        .btn-delete { background:#e74c3c; color:#fff; }
+        .btn-issue { background:#2ecc71; color:#fff; }
+        .btn-return { background:#3498db; color:#fff; }
+        .inline-form input { padding:6px; margin-right:6px; }
+        .section-title { margin:10px 0 8px; font-weight:bold; }
+        .muted { color:#6c757d; }

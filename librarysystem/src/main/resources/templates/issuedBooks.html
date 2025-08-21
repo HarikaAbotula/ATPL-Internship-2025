@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Issued Books</title>
+     <link rel="stylesheet" th:href="@{/css/issuedBooks.css}" />
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-left">
+        <a th:href="@{/admin/books}" style="font-weight:bold;">LibraryBookSystem</a>
+        <a th:href="@{/admin/books}">View Books</a>
+        <a th:href="@{/admin/books/add}" target="_blank">Add Books</a>
+        <a th:href="@{/admin/issued}">IssuedBooks</a>
+    </div>
+    <div>
+        <span>Welcome, [[${session.username}]]</span>
+        <a th:href="@{/logout}" class="btn" style="margin-left:10px;">Logout</a>
+    </div>
+    
+</nav>
+
+<div class="container">
+    <div class="card">
+    <h2>View Issued Books and Returned Books</h2>
+        <form th:action="@{/admin/issued}" method="get" class="search-row">
+            <input type="text" name="userNum" th:value="${query}" placeholder="Search by User Number" required />
+            <button class="btn" type="submit">Search</button>
+        </form>
+        
+        <div th:if="${error}" class="alert-error">[[${error}]]</div>
+        <div th:if="${info}" class="alert-info">[[${info}]]</div>
+
+        <table th:if="${records != null}">
+            <tr>
+                <th>Issue ID</th>
+                <th>Book ID</th>
+                <th>User Num</th>
+                <th>Issue Date</th>
+                <th>Due Date</th>
+                <th>Return Date</th>
+                <th>Returned</th>
+            </tr>
+            <tr th:each="r : ${records}">
+                <td th:text="${r.issueId}"></td>
+                <td th:text="${r.book.bookId}"></td>
+                <td th:text="${r.user.userNum}"></td>
+                <td th:text="${#temporals.format(r.issueDate, 'yyyy-MM-dd HH:mm')}"></td>
+                <td th:text="${#temporals.format(r.dueDate, 'yyyy-MM-dd')}"></td>
+                <td th:text="${r.returnDate != null ? #temporals.format(r.returnDate, 'yyyy-MM-dd HH:mm') : '-'}"></td>
+                <td th:text="${r.isReturned} ? 'Yes' : 'No'"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+	<a class="back-link" th:href="@{/admin/books}">Back to Dashboard</a>
+</body>
+</html>
+
+
