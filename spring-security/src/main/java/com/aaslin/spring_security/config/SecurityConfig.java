@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import com.aaslin.spring_security.service.CustomUserDetailService;
@@ -21,33 +23,41 @@ public class SecurityConfig {
 	private CustomUserDetailService customUserDetailService;
 	
 	@Bean
-    public BCryptPasswordEncoder passwordEncoder() {
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 	
 	@Bean
-	public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-	    AuthenticationManagerBuilder builder =
-	            http.getSharedObject(AuthenticationManagerBuilder.class);
+    public AuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder) {
+        DaoAuthenticationProvider provider =
+            new DaoAuthenticationProvider(customUserDetailService);
+        provider.setPasswordEncoder(passwordEncoder);
+        return provider;
+    }
 
-	    builder.userDetailsService(customUserDetailService)
-	           .passwordEncoder(passwordEncoder());
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
+            throws Exception {
+        return config.getAuthenticationManager();
+    }
 
-	    return builder.build();
-	}
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf(csrf -> csrf.disable()) 
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/register","/api/dev").permitAll() 
+                .anyRequest().authenticated()         
+            )
+            .formLogin(form -> form
+            		.permitAll()
+            )
+            .logout(logout -> logout
+                .permitAll()
+            );
 
-	
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-		http
-		.authorizeHttpRequests(auth -> auth
-				.requestMatchers("/api/admin/dashboard").hasRole("ADMIN")
-				.requestMatchers("/api/user/profile").hasRole("USER")
-				.requestMatchers("/api/dev").permitAll()
-				.anyRequest().authenticated()
-		       )
-		.formLogin(Customizer.withDefaults());
-		return http.build();
-	}
+        return http.build();
+        
+    }
 }
 
