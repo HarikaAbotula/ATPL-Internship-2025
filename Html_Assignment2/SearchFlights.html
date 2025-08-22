@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Flights</title>
+</head>
+<body>
+    <h1>Search Flights</h1>
+    <form action="#">
+       <label for="from">From:</label> 
+        <select>
+            <option value="select">--Choose Depature City--</option>
+            <option value="Vishakaptanam">Vishakaptanam</option>
+             <option value="Hyderabad">Hyderabad</option>
+              <option value="Chennai">Chennai</option>
+        </select><br> <br>
+
+        <label for="to">To:</label> 
+        <select>
+            <option value="select">--Choose Destination City--</option>
+            <option value="bnglr">Bangalore</option>
+             <option value="Mumbai">Mumbai</option>
+              <option value="delhi">Delhi</option>
+        </select><br> <br>
+
+        <label for="dept date">Depature Date:</label> 
+        <input type="date" id="dept date" name="dept date"/> <br><br>
+
+        <label for="return date">Return Date:</label>
+        <input type="date" name="return date" id="return date"/><br><br>
+
+        <label for="adults">Adults:
+        <input type="number" placeholder="Enter count of adults" id="adults" name="adults"/><br><br>
+        <label for="children">Children:</label>
+        <input type="number" placeholder="Enter count of children" id="children" name="children"/><br><br>
+       <button type="submit">Search</button>
+    </form>
+</body>
+</html>
