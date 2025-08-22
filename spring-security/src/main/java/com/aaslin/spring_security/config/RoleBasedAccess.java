@@ -14,31 +14,31 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class RoleBasedAccess {
-//	@Bean
-//	public InMemoryUserDetailsManager userDetailsService() {
-//		UserDetails user = User.withUsername("admin")
-//				.password("{noop}admin123")
-//				.roles("ADMIN")
-//				.build();
-//
-//		UserDetails admin = User.withUsername("harika")
-//				.password("{noop}harika123")
-//				.roles("USER")
-//				.build();
-//		return new InMemoryUserDetailsManager(admin,user);
-//	}
-//	
-//	@Bean
-//	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-//		http
-//		.authorizeHttpRequests(auth -> auth
-//				.requestMatchers("/api/admin/dashboard").hasRole("ADMIN")
-//				.requestMatchers("/api/user/profile").hasRole("USER")
-//				.requestMatchers("/api/hello").permitAll()
-//				.anyRequest().authenticated()
-//				)
-//
-//		.httpBasic(Customizer.withDefaults());
-//		return http.build();
-//	}
+	@Bean
+	public InMemoryUserDetailsManager userDetailsService() {
+		UserDetails user = User.withUsername("admin")
+				.password("{noop}admin123")
+				.roles("ADMIN")
+				.build();
+
+		UserDetails admin = User.withUsername("harika")
+				.password("{noop}harika123")
+				.roles("USER")
+				.build();
+		return new InMemoryUserDetailsManager(admin,user);
+	}
+	
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+		http
+		.authorizeHttpRequests(auth -> auth
+				.requestMatchers("/api/admin/dashboard").hasRole("ADMIN")
+				.requestMatchers("/api/user/profile").hasRole("USER")
+				.requestMatchers("/api/hello").permitAll()
+				.anyRequest().authenticated()
+				)
+
+		.httpBasic(Customizer.withDefaults());
+		return http.build();
+	}
 }
