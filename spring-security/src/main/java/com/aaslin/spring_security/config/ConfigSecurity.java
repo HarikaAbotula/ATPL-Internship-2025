@@ -13,37 +13,37 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class ConfigSecurity {
 
-//    @Bean
-//    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-//        manager.createUser(
-//                User.withUsername("admin")
-//                        .password(encoder.encode("admin123"))
-//                        .roles("ADMIN")
-//                        .build()
-//        );
-//        manager.createUser(
-//                User.withUsername("user")
-//                        .password(encoder.encode("user123"))
-//                        .roles("USER")
-//                        .build()
-//        );
-//        return manager;
-//    }
-//
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-//
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.csrf().disable()
-//            .authorizeHttpRequests()
-//            .anyRequest().authenticated()
-//            .and()
-//            .httpBasic(); // test easily with Postman
-//        return http.build();
-//    }
+   @Bean
+   public UserDetailsService userDetailsService(PasswordEncoder encoder) {
+       InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+       manager.createUser(
+               User.withUsername("admin")
+                       .password(encoder.encode("admin123"))
+                       .roles("ADMIN")
+                       .build()
+       );
+       manager.createUser(
+               User.withUsername("user")
+                       .password(encoder.encode("user123"))
+                       .roles("USER")
+                       .build()
+       );
+       return manager;
+   }
+
+   @Bean
+   public PasswordEncoder passwordEncoder() {
+       return new BCryptPasswordEncoder();
+   }
+
+   @Bean
+   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+       http.csrf().disable()
+           .authorizeHttpRequests()
+           .anyRequest().authenticated()
+           .and()
+           .httpBasic(); // test easily with Postman
+       return http.build();
+   }
 }
 
