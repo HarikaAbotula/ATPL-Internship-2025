@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form using flex</title>
+    <style>
+        .flex-container{
+            display: flex;
+            flex-direction: column;
+            background-color: blue;
+            align-items:center;
+            justify-content:center;
+            width:700px;
+            margin:auto;
+            padding:10px;
+        }
+        .form{
+            background-color: white;
+            padding:20px;
+            width:650px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content:center;
+        }
+        .form input{
+            width:630px;
+            border:1px solid lightgray;
+            border-radius: 3px;
+            padding:10px;
+            box-shadow:8px 8px 5px lightgray;
+        }
+        button{
+            width:650px;
+            border:none;
+            border-radius: 3px;
+            padding:10px;
+            background-color: blue;
+            color:white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(8, 116, 189);
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <form>
+        <div class="form">
+        <center><h1>Login</h1></center>
+        <input type="text" placeholder="Username" required/> <br> <br>
+        <input type="password" placeholder="Password" required/> <br> <br>
+        <button type="Submit" >Submit</button>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

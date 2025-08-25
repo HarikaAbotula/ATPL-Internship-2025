@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Grid layout</title>
+    <style>
+        .grid-container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-gap:50px;
+            margin:center;
+            padding:10px;
+            background-color: lightgray;
+            border-radius: 10px;
+        }
+        .child-container{
+            text-align: center;
+            border-radius: 10px;
+            padding:20px ;
+            background-color: white;
+            font-size: 20px;
+        }
+        p{
+            color:blue;
+        }
+        button{
+            background-color: blue;
+            color:white;
+            border:none;
+            border-radius: 3px;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Pricing plan section with Grid layout</h1></center>
+    <div class="grid-container">
+        <div class="child-container">
+            <b>Basic</b>
+            <p>$19/mo</p>
+            <button type="submit">Choose Plan</button>
+        </div>
+         <div class="child-container">
+            <b>Standard</b>
+            <p>$30/mo</p>
+            <button type="submit">Choose Plan</button>
+        </div>
+         <div class="child-container">
+            <b>Premium</b>
+            <p>$79/mo</p>
+            <button type="submit">Choose Plan</button>
+        </div>
+    </div>
+</body>
+</html>
