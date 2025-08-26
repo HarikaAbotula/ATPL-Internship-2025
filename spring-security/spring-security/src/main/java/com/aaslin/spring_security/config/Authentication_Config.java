@@ -10,20 +10,20 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
-@EnableWebSecurity
-public class Authentication_Config {
-	
+//@Configuration
+//@EnableWebSecurity
+//public class Authentication_Config {
+//	
 //	@Bean
 //	public InMemoryUserDetailsManager userDetailsService() {
 //		UserDetails user = User.withUsername("user").password("{noop}pass123").roles("USER").build();
 //		return new InMemoryUserDetailsManager(user);
 //	}
-//	
+	
 //	@Bean
 //	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 //		http.authorizeHttpRequests(auth -> auth.requestMatchers("/api/dev").permitAll().anyRequest().authenticated());
 //		http.formLogin(Customizer.withDefaults());
 //		return http.build();
 //	}
-}
+//}

@@ -10,9 +10,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
-public class ConfigSecurity {
-
+//@Configuration
+//public class ConfigSecurity {
+//
 //    @Bean
 //    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
 //        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
@@ -36,14 +36,15 @@ public class ConfigSecurity {
 //        return new BCryptPasswordEncoder();
 //    }
 //
-//    @Bean
+//    @SuppressWarnings("removal")
+//	@Bean
 //    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 //        http.csrf().disable()
 //            .authorizeHttpRequests()
 //            .anyRequest().authenticated()
 //            .and()
-//            .httpBasic(); // test easily with Postman
+//            .httpBasic(); 
 //        return http.build();
 //    }
-}
+//}
 

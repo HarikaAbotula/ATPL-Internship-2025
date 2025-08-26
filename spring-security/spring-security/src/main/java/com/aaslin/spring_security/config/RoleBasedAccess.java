@@ -27,14 +27,14 @@ public class RoleBasedAccess {
 //				.build();
 //		return new InMemoryUserDetailsManager(admin,user);
 //	}
-//	
+	
 //	@Bean
 //	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 //		http
 //		.authorizeHttpRequests(auth -> auth
 //				.requestMatchers("/api/admin/dashboard").hasRole("ADMIN")
 //				.requestMatchers("/api/user/profile").hasRole("USER")
-//				.requestMatchers("/api/hello").permitAll()
+//				.requestMatchers("/hello").permitAll()
 //				.anyRequest().authenticated()
 //				)
 //
