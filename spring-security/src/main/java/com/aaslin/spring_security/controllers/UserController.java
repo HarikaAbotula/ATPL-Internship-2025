@@ -8,6 +8,7 @@ import com.aaslin.spring_security.service.UserService;
 @RequestMapping("/users")
 public class UserController {
 
+<<<<<<< HEAD
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -25,5 +26,24 @@ public class UserController {
     public String viewProfile(@PathVariable String username) {
         return userService.viewProfile(username);
     }
+=======
+   private final UserService userService;
+
+   public UserController(UserService userService) {
+       this.userService = userService;
+   }
+
+   // Only ADMIN can access
+   @DeleteMapping("/{id}")
+   public String deleteUser(@PathVariable Long id) {
+       return userService.deleteUser(id);
+   }
+
+   // Only USER can access
+   @GetMapping("/{username}")
+   public String viewProfile(@PathVariable String username) {
+       return userService.viewProfile(username);
+   }
+>>>>>>> 9cee4792e66a55232df7aedd097895fbc5b44705
 }
 
